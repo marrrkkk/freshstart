@@ -67,12 +67,12 @@ export default function Navbar() {
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-2 z-50 relative">
+                <Link href="/" className="flex items-center gap-2 z-50 relative hover:opacity-80 transition-opacity">
                     <div className="relative w-8 h-8">
                         <Image src="/logo.png" alt="FreshStart PH Logo" fill className="object-contain" />
                     </div>
                     <span className="text-xl font-medium text-gray-900 dark:text-white">FreshStart PH</span>
-                </div>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
