@@ -1,0 +1,78 @@
+{
+    "seo": {
+        "siteName": "FreshStart PH",
+        "siteUrl": "https://freshstartph.site",
+        "defaultTitle": "FreshStart PH - Web Development Services in the Philippines",
+        "defaultDescription": "Professional web development services in the Philippines. We build custom websites, e-commerce platforms, and web applications with Next.js, React, and modern technologies.",
+        "keywords": [
+            "web development Philippines",
+            "web design Philippines",
+            "Next.js development",
+            "React development",
+            "e-commerce development",
+            "custom web applications",
+            "UI/UX design",
+            "SEO services Philippines",
+            "website maintenance",
+            "FreshStart PH"
+        ],
+        "author": "FreshStart PH",
+        "twitterHandle": "@freshstartph",
+        "ogImage": "/og-image.png",
+        "favicon": "/favicon.ico"
+    },
+    "pages": {
+        "home": {
+            "title": "FreshStart PH - Professional Web Development Services in the Philippines",
+            "description": "Ship fast, scale smarter. FreshStart PH delivers high-quality web development projects with Next.js, React, and modern technologies. Custom websites, e-commerce, and web apps.",
+            "keywords": "web development Philippines, Next.js, React, custom websites, e-commerce, web applications"
+        },
+        "about": {
+            "title": "About Us - FreshStart PH | Student-Founded Web Development Team",
+            "description": "Meet the FreshStart PH team - a dynamic web development company founded by BSIT students, dedicated to building the future of the web from the Philippines.",
+            "keywords": "about FreshStart PH, web development team, BSIT students, Philippines web developers"
+        },
+        "services": {
+            "title": "Our Services - Web Development, E-commerce & Design | FreshStart PH",
+            "description": "Explore our web development services: custom development, e-commerce solutions, web apps, UI/UX design, SEO growth, and website maintenance.",
+            "keywords": "web development services, e-commerce development, UI/UX design, SEO services, website maintenance"
+        },
+        "portfolio": {
+            "title": "Portfolio - Our Work | FreshStart PH",
+            "description": "View our portfolio of successful web development projects including FinanceFlow, GridLine Tech, and KeyCraft. See how we help businesses grow online.",
+            "keywords": "web development portfolio, case studies, successful projects, Philippines web design"
+        }
+    },
+    "structuredData": {
+        "organization": {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "FreshStart PH",
+            "url": "https://freshstartph.site",
+            "logo": "https://freshstartph.site/logo.png",
+            "description": "Professional web development services in the Philippines",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "PH"
+            },
+            "sameAs": [
+                "https://facebook.com/freshstartph",
+                "https://linkedin.com/company/freshstartph",
+                "https://github.com/freshstartph"
+            ]
+        },
+        "localBusiness": {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "FreshStart PH",
+            "image": "https://freshstartph.site/logo.png",
+            "description": "Web development and design services in the Philippines",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Philippines"
+            },
+            "priceRange": "$$",
+            "url": "https://freshstartph.site"
+        }
+    }
+}
