@@ -41,7 +41,7 @@ export default function Services() {
     return (
         <section className="py-20 px-6 md:px-12 bg-white dark:bg-black" id="services">
             <div className="max-w-6xl mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4 border-b border-gray-100 dark:border-zinc-800 pb-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4 border-b border-gray-100 dark:border-zinc-800 pb-6">
                     <div>
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Our Expertise</h2>
                         <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-md text-sm">

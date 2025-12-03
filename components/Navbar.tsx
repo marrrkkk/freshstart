@@ -158,8 +158,8 @@ export default function Navbar() {
                 </button>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 bg-white dark:bg-black z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out md:hidden ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-                    <div className="flex flex-col items-center gap-8 text-xl font-medium text-gray-900 dark:text-white">
+                <div className={`fixed inset-0 bg-white dark:bg-black flex flex-col items-center justify-center transition-all duration-300 ease-in-out md:hidden ${isMenuOpen ? 'opacity-100 visible z-50' : 'opacity-0 invisible pointer-events-none z-50'}`} style={{ top: 0, left: 0, right: 0, bottom: 0, position: 'fixed' }}>
+                    <div className="flex flex-col items-center gap-8 text-2xl font-medium text-gray-900 dark:text-white">
                         <Link href="/#services" onClick={() => setIsMenuOpen(false)} className="relative group">
                             Services
                             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-orange-500 dark:bg-orange-400 transition-all duration-300 group-hover:w-full"></span>

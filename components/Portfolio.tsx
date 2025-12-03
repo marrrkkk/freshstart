@@ -67,6 +67,18 @@ export default function Portfolio() {
                                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                                     {project.title}
                                 </h3>
+
+                                {/* Mobile Image */}
+                                <div className="lg:hidden relative w-full h-64 rounded-xl overflow-hidden mb-6 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover object-top"
+                                        priority={index === 0}
+                                    />
+                                </div>
+
                                 <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                                     {project.description}
                                 </p>
