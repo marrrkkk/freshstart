@@ -1,196 +1,218 @@
 {
-    "services":  [
-                     {
-                         "title":  "Custom Development",
-                         "description":  "Tailored websites built with Next.js and React for your specific needs.",
-                         "icon":  "Code",
-                         "details":  {
-                                         "fullDescription":  "We create custom web solutions tailored to your unique business requirements. Our development process ensures scalability, performance, and maintainability.",
-                                         "features":  [
-                                                          "Custom Next.js \u0026 React applications",
-                                                          "Responsive design across all devices",
-                                                          "Performance optimization",
-                                                          "SEO-friendly architecture",
-                                                          "API integration \u0026 development"
-                                                      ],
-                                         "technologies":  [
-                                                              "Next.js",
-                                                              "React",
-                                                              "TypeScript",
-                                                              "Tailwind CSS",
-                                                              "Node.js"
-                                                          ]
-                                     }
-                     },
-                     {
-                         "title":  "E-commerce",
-                         "description":  "Scalable online stores designed for seamless shopping and sales.",
-                         "icon":  "ShoppingBag",
-                         "details":  {
-                                         "fullDescription":  "Build powerful e-commerce platforms that drive sales and provide exceptional shopping experiences. We integrate payment gateways, inventory management, and analytics.",
-                                         "features":  [
-                                                          "Secure payment gateway integration",
-                                                          "Product catalog management",
-                                                          "Shopping cart \u0026 checkout flow",
-                                                          "Order tracking \u0026 management",
-                                                          "Analytics \u0026 reporting dashboard"
-                                                      ],
-                                         "technologies":  [
-                                                              "Shopify",
-                                                              "WooCommerce",
-                                                              "Stripe",
-                                                              "PayPal",
-                                                              "Next.js"
-                                                          ]
-                                     }
-                     },
-                     {
-                         "title":  "Web Apps",
-                         "description":  "Powerful, interactive applications that solve complex problems.",
-                         "icon":  "Laptop",
-                         "details":  {
-                                         "fullDescription":  "Develop sophisticated web applications that streamline your business processes. From SaaS platforms to internal tools, we build solutions that scale.",
-                                         "features":  [
-                                                          "Real-time data synchronization",
-                                                          "User authentication \u0026 authorization",
-                                                          "Database design \u0026 optimization",
-                                                          "Third-party API integrations",
-                                                          "Cloud deployment \u0026 hosting"
-                                                      ],
-                                         "technologies":  [
-                                                              "React",
-                                                              "Node.js",
-                                                              "PostgreSQL",
-                                                              "MongoDB",
-                                                              "AWS"
-                                                          ]
-                                     }
-                     },
-                     {
-                         "title":  "UI/UX Design",
-                         "description":  "Intuitive, visually stunning interfaces focused on user experience.",
-                         "icon":  "Palette",
-                         "details":  {
-                                         "fullDescription":  "Create beautiful, user-centered designs that enhance engagement and conversion. Our design process focuses on usability, accessibility, and brand consistency.",
-                                         "features":  [
-                                                          "User research \u0026 persona development",
-                                                          "Wireframing \u0026 prototyping",
-                                                          "Visual design \u0026 branding",
-                                                          "Usability testing \u0026 iteration",
-                                                          "Design system creation"
-                                                      ],
-                                         "technologies":  [
-                                                              "Figma",
-                                                              "Adobe XD",
-                                                              "Sketch",
-                                                              "InVision",
-                                                              "Principle"
-                                                          ]
-                                     }
-                     },
-                     {
-                         "title":  "SEO Growth",
-                         "description":  "Strategic optimization to improve visibility and attract traffic.",
-                         "icon":  "Search",
-                         "details":  {
-                                         "fullDescription":  "Boost your online visibility with comprehensive SEO strategies. We optimize your site for search engines while maintaining excellent user experience.",
-                                         "features":  [
-                                                          "Technical SEO audit \u0026 fixes",
-                                                          "Keyword research \u0026 strategy",
-                                                          "On-page optimization",
-                                                          "Content optimization",
-                                                          "Performance monitoring \u0026 reporting"
-                                                      ],
-                                         "technologies":  [
-                                                              "Google Analytics",
-                                                              "Search Console",
-                                                              "Ahrefs",
-                                                              "SEMrush",
-                                                              "Screaming Frog"
-                                                          ]
-                                     }
-                     },
-                     {
-                         "title":  "Maintenance",
-                         "description":  "Ongoing support to ensure security, speed, and reliability.",
-                         "icon":  "Wrench",
-                         "details":  {
-                                         "fullDescription":  "Keep your website running smoothly with our comprehensive maintenance services. We handle updates, security, backups, and performance optimization.",
-                                         "features":  [
-                                                          "Regular security updates \u0026 patches",
-                                                          "Performance monitoring \u0026 optimization",
-                                                          "Automated backups \u0026 recovery",
-                                                          "Bug fixes \u0026 troubleshooting",
-                                                          "24/7 uptime monitoring"
-                                                      ],
-                                         "technologies":  [
-                                                              "GitHub",
-                                                              "Vercel",
-                                                              "AWS",
-                                                              "Cloudflare",
-                                                              "New Relic"
-                                                          ]
-                                     }
-                     }
-                 ],
-    "projects":  [
-                     {
-                         "id":  1,
-                         "category":  "Fintech",
-                         "title":  "FinanceFlow",
-                         "description":  "Automate your financial workflows and simplify operations with our intuitive platform designed for businesses of all sizes.",
-                         "color":  "bg-blue-500",
-                         "image":  "/projects/financeflow.png"
-                     },
-                     {
-                         "id":  2,
-                         "category":  "IT Solutions",
-                         "title":  "GridLine Tech",
-                         "description":  "Leading IT services company specializing in cloud infrastructure, cybersecurity, and digital transformation.",
-                         "color":  "bg-green-600",
-                         "image":  "/projects/gridline.png"
-                     },
-                     {
-                         "id":  3,
-                         "category":  "Ecommerce",
-                         "title":  "KeyCraft",
-                         "description":  "A premium e-commerce experience for mechanical keyboard enthusiasts, featuring a seamless shopping cart and checkout process.",
-                         "color":  "bg-orange-500",
-                         "image":  "/projects/keycraft.png"
-                     }
-                 ],
-    "about":  {
-                  "founders":  {
-                                   "sectionSubtitle":  "The minds behind the code.",
-                                   "sectionTitle":  "Meet the Founders",
-                                   "team":  [
-                                                {
-                                                    "education":  "BSIT Student",
-                                                    "description":  "Focuses on client acquisition, business development, and building relationships with potential clients.",
-                                                    "name":  "Kenji Decena",
-                                                    "role":  "CEO",
-                                                    "socials":  {
-                                                                    "linkedin":  "",
-                                                                    "facebook":  "",
-                                                                    "github":  ""
-                                                                }
-                                                },
-                                                {
-                                                    "education":  "BSIT Student",
-                                                    "description":  "Full stack developer specializing in both frontend and backend development, system architecture, and technical implementation.",
-                                                    "name":  "Mark Louie Alvarez",
-                                                    "role":  "Developer",
-                                                    "socials":  {
-                                                                    "linkedin":  "",
-                                                                    "facebook":  "",
-                                                                    "github":  ""
-                                                                }
-                                                }
-                                            ]
-                               },
-                  "hero":  {
-                               "description":  "A dynamic web development team founded by students, fueled by passion, and dedicated to building the future of the web from the Philippines.",
-                               "title":  "We are FreshStart."
-                           }
-              }
+    "services": [
+        {
+            "title": "Custom Development",
+            "description": "Tailored websites built with Next.js and React for your specific needs.",
+            "icon": "Code",
+            "details": {
+                "fullDescription": "We create custom web solutions tailored to your unique business requirements. Our development process ensures scalability, performance, and maintainability.",
+                "features": [
+                    "Custom Next.js \u0026 React applications",
+                    "Responsive design across all devices",
+                    "Performance optimization",
+                    "SEO-friendly architecture",
+                    "API integration \u0026 development"
+                ],
+                "technologies": [
+                    "Next.js",
+                    "React",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    "Node.js"
+                ]
+            }
+        },
+        {
+            "title": "E-commerce",
+            "description": "Scalable online stores designed for seamless shopping and sales.",
+            "icon": "ShoppingBag",
+            "details": {
+                "fullDescription": "Build powerful e-commerce platforms that drive sales and provide exceptional shopping experiences. We integrate payment gateways, inventory management, and analytics.",
+                "features": [
+                    "Secure payment gateway integration",
+                    "Product catalog management",
+                    "Shopping cart \u0026 checkout flow",
+                    "Order tracking \u0026 management",
+                    "Analytics \u0026 reporting dashboard"
+                ],
+                "technologies": [
+                    "Shopify",
+                    "WooCommerce",
+                    "Stripe",
+                    "PayPal",
+                    "Next.js"
+                ]
+            }
+        },
+        {
+            "title": "Web Apps",
+            "description": "Powerful, interactive applications that solve complex problems.",
+            "icon": "Laptop",
+            "details": {
+                "fullDescription": "Develop sophisticated web applications that streamline your business processes. From SaaS platforms to internal tools, we build solutions that scale.",
+                "features": [
+                    "Real-time data synchronization",
+                    "User authentication \u0026 authorization",
+                    "Database design \u0026 optimization",
+                    "Third-party API integrations",
+                    "Cloud deployment \u0026 hosting"
+                ],
+                "technologies": [
+                    "React",
+                    "Node.js",
+                    "PostgreSQL",
+                    "MongoDB",
+                    "AWS"
+                ]
+            }
+        },
+        {
+            "title": "UI/UX Design",
+            "description": "Intuitive, visually stunning interfaces focused on user experience.",
+            "icon": "Palette",
+            "details": {
+                "fullDescription": "Create beautiful, user-centered designs that enhance engagement and conversion. Our design process focuses on usability, accessibility, and brand consistency.",
+                "features": [
+                    "User research \u0026 persona development",
+                    "Wireframing \u0026 prototyping",
+                    "Visual design \u0026 branding",
+                    "Usability testing \u0026 iteration",
+                    "Design system creation"
+                ],
+                "technologies": [
+                    "Figma",
+                    "Adobe XD",
+                    "Sketch",
+                    "InVision",
+                    "Principle"
+                ]
+            }
+        },
+        {
+            "title": "SEO Growth",
+            "description": "Strategic optimization to improve visibility and attract traffic.",
+            "icon": "Search",
+            "details": {
+                "fullDescription": "Boost your online visibility with comprehensive SEO strategies. We optimize your site for search engines while maintaining excellent user experience.",
+                "features": [
+                    "Technical SEO audit \u0026 fixes",
+                    "Keyword research \u0026 strategy",
+                    "On-page optimization",
+                    "Content optimization",
+                    "Performance monitoring \u0026 reporting"
+                ],
+                "technologies": [
+                    "Google Analytics",
+                    "Search Console",
+                    "Ahrefs",
+                    "SEMrush",
+                    "Screaming Frog"
+                ]
+            }
+        },
+        {
+            "title": "Maintenance",
+            "description": "Ongoing support to ensure security, speed, and reliability.",
+            "icon": "Wrench",
+            "details": {
+                "fullDescription": "Keep your website running smoothly with our comprehensive maintenance services. We handle updates, security, backups, and performance optimization.",
+                "features": [
+                    "Regular security updates \u0026 patches",
+                    "Performance monitoring \u0026 optimization",
+                    "Automated backups \u0026 recovery",
+                    "Bug fixes \u0026 troubleshooting",
+                    "24/7 uptime monitoring"
+                ],
+                "technologies": [
+                    "GitHub",
+                    "Vercel",
+                    "AWS",
+                    "Cloudflare",
+                    "New Relic"
+                ]
+            }
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "category": "Fintech",
+            "title": "FinanceFlow",
+            "description": "Automate your financial workflows and simplify operations with our intuitive platform designed for businesses of all sizes.",
+            "color": "bg-blue-500",
+            "image": "/projects/financeflow.png"
+        },
+        {
+            "id": 2,
+            "category": "IT Solutions",
+            "title": "GridLine Tech",
+            "description": "Leading IT services company specializing in cloud infrastructure, cybersecurity, and digital transformation.",
+            "color": "bg-green-600",
+            "image": "/projects/gridline.png"
+        },
+        {
+            "id": 3,
+            "category": "Ecommerce",
+            "title": "KeyCraft",
+            "description": "A premium e-commerce experience for mechanical keyboard enthusiasts, featuring a seamless shopping cart and checkout process.",
+            "color": "bg-orange-500",
+            "image": "/projects/keycraft.png"
+        }
+    ],
+    "about": {
+        "founders": {
+            "sectionSubtitle": "The minds behind the code.",
+            "sectionTitle": "Meet the Founders",
+            "team": [
+                {
+                    "education": "BSIT Student",
+                    "description": "Focuses on client acquisition, business development, and building relationships with potential clients.",
+                    "name": "Kenji Decena",
+                    "role": "CEO",
+                    "socials": {
+                        "linkedin": "",
+                        "facebook": "",
+                        "github": ""
+                    }
+                },
+                {
+                    "education": "BSIT Student",
+                    "description": "Full stack developer specializing in both frontend and backend development, system architecture, and technical implementation.",
+                    "name": "Mark Louie Alvarez",
+                    "role": "Developer",
+                    "socials": {
+                        "linkedin": "",
+                        "facebook": "",
+                        "github": ""
+                    }
+                }
+            ]
+        },
+        "hero": {
+            "description": "A dynamic web development team founded by students, fueled by passion, and dedicated to building the future of the web from the Philippines.",
+            "title": "We are FreshStart."
+        }
+    },
+    "faq": [
+        {
+            "question": "What services do you offer?",
+            "answer": "We specialize in custom web development, e-commerce solutions, web applications, UI/UX design, SEO growth strategies, and ongoing website maintenance."
+        },
+        {
+            "question": "How long does a project take?",
+            "answer": "Project timelines vary depending on complexity. A standard website might take 2-4 weeks, while more complex web applications could take 8-12 weeks. We'll provide a detailed timeline during our initial consultation."
+        },
+        {
+            "question": "Do you provide support after launch?",
+            "answer": "Yes! We offer comprehensive maintenance packages to ensure your website remains secure, fast, and up-to-date. We're here to support your long-term success."
+        },
+        {
+            "question": "What is your pricing structure?",
+            "answer": "Our pricing is project-based and depends on your specific requirements. We offer competitive rates and transparent pricing with no hidden fees. Contact us for a custom quote."
+        },
+        {
+            "question": "Can you redesign my existing website?",
+            "answer": "Absolutely. We can modernize your existing website with a fresh design, improved performance, and better user experience while maintaining your brand identity."
+        }
+    ]
 }

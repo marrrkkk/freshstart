@@ -39,9 +39,13 @@ export default function Services() {
     };
 
     return (
-        <section className="py-20 px-6 md:px-12 bg-white dark:bg-black" id="services">
-            <div className="max-w-6xl mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4 border-b border-gray-100 dark:border-zinc-800 pb-6">
+        <section className="py-20 px-6 md:px-12 relative overflow-hidden" id="services">
+            {/* Background with dot pattern and radial fade */}
+            <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(250,250,250,0.7)_50%,rgba(250,250,250,1)_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(9,9,11,0.7)_50%,rgba(9,9,11,1)_100%)]"></div>
+
+            <div className="relative max-w-7xl mx-auto">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-6">
                     <div>
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Our Expertise</h2>
                         <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-md text-sm">
@@ -56,10 +60,10 @@ export default function Services() {
                         <Card
                             key={index}
                             onClick={() => handleServiceClick(service)}
-                            className="group p-6 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800 hover:border-orange-500/30 hover:bg-orange-50/30 dark:hover:bg-orange-900/10 transition-all duration-300 shadow-none cursor-pointer"
+                            className="group p-6 rounded-xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:bg-orange-50/30 dark:hover:bg-orange-900/10 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
                         >
                             <div className="flex justify-between items-start mb-4">
-                                <div className="p-2.5 rounded-lg bg-white dark:bg-zinc-800 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                                <div className="p-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-800 shadow-sm group-hover:scale-110 transition-transform duration-300">
                                     <service.icon className="w-5 h-5 text-orange-500" />
                                 </div>
                                 <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-orange-500 transition-colors opacity-0 group-hover:opacity-100" />

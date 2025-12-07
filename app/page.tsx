@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Contact from "@/components/Contact";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import seoData from "@/data/seo.json";
 
@@ -34,6 +35,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <Process />
+      <FAQ />
       <Contact />
       <Footer />
     </main>

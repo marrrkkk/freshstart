@@ -8,11 +8,11 @@ import Particles from "./Particles";
 
 export default function Contact() {
     return (
-        <section className="relative py-24 bg-zinc-50 dark:bg-zinc-900/30 overflow-hidden" id="contact">
+        <section className="relative py-24 bg-white dark:bg-black overflow-hidden" id="contact">
             <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
                 <Particles />
             </div>
-            <div className="relative z-10 max-w-6xl mx-auto px-6">
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
                     {/* Left Column: Content */}
@@ -27,7 +27,7 @@ export default function Contact() {
 
                         <div className="space-y-8">
                             <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-white dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 shadow-sm">
+                                <div className="p-3 rounded-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 shadow-sm">
                                     <Mail className="w-5 h-5 text-orange-500" />
                                 </div>
                                 <div>
@@ -37,7 +37,7 @@ export default function Contact() {
                             </div>
 
                             <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-white dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 shadow-sm">
+                                <div className="p-3 rounded-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 shadow-sm">
                                     <Phone className="w-5 h-5 text-orange-500" />
                                 </div>
                                 <div>
@@ -47,39 +47,39 @@ export default function Contact() {
                             </div>
 
                             <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-white dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 shadow-sm">
+                                <div className="p-3 rounded-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 shadow-sm">
                                     <MapPin className="w-5 h-5 text-orange-500" />
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Visit Us</h3>
-                                    <p className="text-gray-600 dark:text-gray-400">Makati City, Philippines</p>
+                                    <p className="text-gray-600 dark:text-gray-400">Lucena City, Philippines</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Right Column: Form */}
-                    <div className="bg-white dark:bg-black p-8 md:p-10 rounded-3xl border border-zinc-100 dark:border-zinc-800 shadow-xl shadow-zinc-200/50 dark:shadow-none">
+                    <div className="bg-zinc-50 dark:bg-zinc-900 p-8 md:p-10 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl shadow-zinc-200/50 dark:shadow-none">
                         <form className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="first-name" className="text-sm font-medium text-gray-700 dark:text-gray-300">First Name</label>
-                                    <Input type="text" id="first-name" className="w-full px-4 py-3 h-auto rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-orange-500/20 focus-visible:border-orange-500 transition-all" placeholder="John" />
+                                    <Input type="text" id="first-name" className="w-full px-4 py-3 h-auto rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-orange-500/20 focus-visible:border-orange-500 transition-all" placeholder="John" />
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="last-name" className="text-sm font-medium text-gray-700 dark:text-gray-300">Last Name</label>
-                                    <Input type="text" id="last-name" className="w-full px-4 py-3 h-auto rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-orange-500/20 focus-visible:border-orange-500 transition-all" placeholder="Doe" />
+                                    <Input type="text" id="last-name" className="w-full px-4 py-3 h-auto rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-orange-500/20 focus-visible:border-orange-500 transition-all" placeholder="Doe" />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
                                 <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
-                                <Input type="email" id="email" className="w-full px-4 py-3 h-auto rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-orange-500/20 focus-visible:border-orange-500 transition-all" placeholder="john@example.com" />
+                                <Input type="email" id="email" className="w-full px-4 py-3 h-auto rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-orange-500/20 focus-visible:border-orange-500 transition-all" placeholder="john@example.com" />
                             </div>
 
                             <div className="space-y-2">
                                 <label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-                                <Textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-orange-500/20 focus-visible:border-orange-500 transition-all resize-none" placeholder="Tell us about your project..." />
+                                <Textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-orange-500/20 focus-visible:border-orange-500 transition-all resize-none" placeholder="Tell us about your project..." />
                             </div>
 
                             <Button type="submit" className="w-full py-4 px-6 h-auto bg-black dark:bg-white text-white dark:text-black font-medium rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 hover:bg-black/90 dark:hover:bg-white/90">

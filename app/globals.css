@@ -183,6 +183,17 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Orange accent text selection */
+  ::selection {
+    background-color: rgb(249 115 22 / 0.3);
+    color: inherit;
+  }
+
+  ::-moz-selection {
+    background-color: rgb(249 115 22 / 0.3);
+    color: inherit;
+  }
 }
 
 /* Lenis Smooth Scroll */

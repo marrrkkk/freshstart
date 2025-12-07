@@ -40,8 +40,8 @@ export default function Portfolio() {
     }, []);
 
     return (
-        <section className="bg-white dark:bg-black py-24" id="portfolio">
-            <div className="max-w-6xl mx-auto px-6">
+        <section className="bg-zinc-50 dark:bg-zinc-900 py-24" id="portfolio">
+            <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-20">
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
                         Selected Works
@@ -53,7 +53,7 @@ export default function Portfolio() {
 
                 <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
                     {/* Left Column: Text Content */}
-                    <div className="flex flex-col gap-24 lg:gap-0">
+                    <div className="flex flex-col gap-8 lg:gap-0">
                         {projects.map((project, index) => (
                             <div
                                 key={project.id}
