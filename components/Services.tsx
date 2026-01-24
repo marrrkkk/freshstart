@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Code, ShoppingBag, Laptop, Palette, Search, Wrench, ArrowUpRight, X } from "lucide-react";
+import { Code, ShoppingBag, Laptop, Palette, Smartphone, Wrench, ArrowUpRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -19,7 +19,7 @@ const iconMap = {
     ShoppingBag,
     Laptop,
     Palette,
-    Search,
+    Smartphone,
     Wrench,
 };
 
@@ -45,33 +45,30 @@ export default function Services() {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(250,250,250,0.7)_50%,rgba(250,250,250,1)_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(9,9,11,0.7)_50%,rgba(9,9,11,1)_100%)]"></div>
 
             <div className="relative max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-6">
-                    <div>
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Our Expertise</h2>
-                        <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-md text-sm">
-                            Minimalist solutions for complex digital challenges.
-                        </p>
-                    </div>
-
+                <div className="mb-10">
+                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Services We Offer</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {services.map((service, index) => (
                         <Card
                             key={index}
                             onClick={() => handleServiceClick(service)}
-                            className="group p-6 rounded-xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/30 hover:bg-orange-50/30 dark:hover:bg-orange-900/10 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
+                            className="group relative overflow-hidden p-6 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/40 dark:hover:border-orange-500/30 hover:bg-orange-50/40 dark:hover:bg-orange-900/10 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-orange-500/5 cursor-pointer"
                         >
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="p-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-800 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                                    <service.icon className="w-5 h-5 text-orange-500" />
+                            <div className="absolute top-0 right-0 w-24 h-24 -translate-y-8 translate-x-8 rounded-full bg-orange-500/5 group-hover:bg-orange-500/10 transition-colors duration-300" />
+                            <div className="relative">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div className="p-3 rounded-xl bg-zinc-100 dark:bg-zinc-800/80 text-orange-500 group-hover:bg-orange-50 dark:group-hover:bg-orange-900/20 transition-colors duration-300">
+                                        <service.icon className="w-6 h-6" />
+                                    </div>
+                                    <ArrowUpRight className="w-5 h-5 text-zinc-300 dark:text-zinc-600 group-hover:text-orange-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                                 </div>
-                                <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-orange-500 transition-colors opacity-0 group-hover:opacity-100" />
+                                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white tracking-tight">{service.title}</h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                    {service.description}
+                                </p>
                             </div>
-                            <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white tracking-tight">{service.title}</h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                                {service.description}
-                            </p>
                         </Card>
                     ))}
                 </div>

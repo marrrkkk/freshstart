@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+
 import {
     Drawer,
     DrawerClose,
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/drawer";
 
 import siteData from "@/data/data.json";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -67,8 +68,9 @@ export default function Navbar() {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <nav className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md dark:bg-black/80 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+            <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between relative">
+                {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 z-50 relative hover:opacity-80 transition-opacity">
                     <div className="relative w-8 h-8">
                         <Image src="/logo.png" alt="FreshStart PH Logo" fill className="object-contain" />
@@ -76,22 +78,21 @@ export default function Navbar() {
                     <span className="text-xl font-medium text-gray-900 dark:text-white">FreshStart PH</span>
                 </Link>
 
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
+                {/* Desktop Navigation - Absolute Center */}
+                <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
                     {/* Services Dropdown */}
                     <div
-                        className="relative group"
+                        className="relative group h-full flex items-center"
                         onMouseEnter={() => setIsServicesOpen(true)}
                         onMouseLeave={() => setIsServicesOpen(false)}
                     >
-                        <Link href="/#services" className="flex items-center gap-1 relative">
+                        <Link href="/#services" className="flex items-center gap-1 relative py-2">
                             Services
                             <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-orange-500 dark:bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
 
                         {/* Dropdown Menu */}
-                        <div className={`absolute top-full left-0 mt-2 w-52 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 ${isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                        <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 ${isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                             {servicesItems.map((item, index) => (
                                 <Link
                                     key={index}
@@ -106,18 +107,17 @@ export default function Navbar() {
 
                     {/* Portfolio Dropdown */}
                     <div
-                        className="relative group"
+                        className="relative group h-full flex items-center"
                         onMouseEnter={() => setIsPortfolioOpen(true)}
                         onMouseLeave={() => setIsPortfolioOpen(false)}
                     >
-                        <Link href="/#portfolio" className="flex items-center gap-1 relative">
+                        <Link href="/#portfolio" className="flex items-center gap-1 relative py-2">
                             Portfolio
                             <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPortfolioOpen ? 'rotate-180' : ''}`} />
-                            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-orange-500 dark:bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
 
                         {/* Dropdown Menu */}
-                        <div className={`absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 ${isPortfolioOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                        <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 ${isPortfolioOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                             {portfolioItems.map((item, index) => (
                                 <Link
                                     key={index}
@@ -130,22 +130,21 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    <Link href="/#process" className="relative group">
+                    <Link href="/#process" className="relative group py-2">
                         Process
-                        <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-orange-500 dark:bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
                     </Link>
-                    <Link href="/about" className="relative group">
+                    <Link href="/about" className="relative group py-2">
                         About Us
-                        <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-orange-500 dark:bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                 </div>
 
+                {/* Right Side Button */}
                 <div className="hidden md:flex items-center gap-4">
-                    <RainbowButton asChild size="lg">
+                    <Button asChild size="lg" className="rounded-full px-6 shadow-md hover:shadow-lg transition-all duration-300">
                         <Link href="/#contact">
                             Contact Us
                         </Link>
-                    </RainbowButton>
+                    </Button>
                 </div>
 
                 {/* Mobile Drawer */}
@@ -221,11 +220,11 @@ export default function Navbar() {
 
                                 {/* CTA Button */}
                                 <DrawerClose asChild>
-                                    <RainbowButton asChild size="lg" className="w-full">
+                                    <Button asChild size="lg" className="w-full rounded-full">
                                         <Link href="/#contact" onClick={handleLinkClick}>
                                             Contact Us
                                         </Link>
-                                    </RainbowButton>
+                                    </Button>
                                 </DrawerClose>
                             </div>
                         </DrawerContent>

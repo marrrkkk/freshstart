@@ -89,24 +89,24 @@
             }
         },
         {
-            "title": "SEO Growth",
-            "description": "Strategic optimization to improve visibility and attract traffic.",
-            "icon": "Search",
+            "title": "Mobile Development",
+            "description": "Native and cross-platform apps built for iOS and Android with modern stacks.",
+            "icon": "Smartphone",
             "details": {
-                "fullDescription": "Boost your online visibility with comprehensive SEO strategies. We optimize your site for search engines while maintaining excellent user experience.",
+                "fullDescription": "We build mobile applications that deliver seamless experiences on iOS and Android. From React Native to Flutter, we choose the right stack for your project and users.",
                 "features": [
-                    "Technical SEO audit \u0026 fixes",
-                    "Keyword research \u0026 strategy",
-                    "On-page optimization",
-                    "Content optimization",
-                    "Performance monitoring \u0026 reporting"
+                    "Cross-platform apps with React Native or Flutter",
+                    "Native iOS \u0026 Android development",
+                    "App store submission \u0026 optimization",
+                    "Push notifications \u0026 deep linking",
+                    "Performance tuning \u0026 analytics"
                 ],
                 "technologies": [
-                    "Google Analytics",
-                    "Search Console",
-                    "Ahrefs",
-                    "SEMrush",
-                    "Screaming Frog"
+                    "React Native",
+                    "Flutter",
+                    "Expo",
+                    "Firebase",
+                    "Supabase"
                 ]
             }
         },
@@ -196,7 +196,7 @@
     "faq": [
         {
             "question": "What services do you offer?",
-            "answer": "We specialize in custom web development, e-commerce solutions, web applications, UI/UX design, SEO growth strategies, and ongoing website maintenance."
+            "answer": "We specialize in custom web development, e-commerce solutions, web applications, UI/UX design, mobile development, and ongoing website maintenance."
         },
         {
             "question": "How long does a project take?",
