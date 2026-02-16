@@ -1,6 +1,6 @@
 "use client";
 
-import { Component, Zap, Server, Database, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,46 +17,56 @@ export default function Hero() {
 
     return (
         <section className="relative flex flex-col items-center min-h-screen w-full overflow-hidden bg-white dark:bg-black pt-32 md:pt-40 pb-20 border-b border-gray-100 dark:border-zinc-800">
-            {/* Grid Background */}
+            {/* Grid Background & Ambient Glow */}
             <div className="absolute inset-0 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none opacity-50 dark:opacity-30" />
 
             {/* Hero Content - centered in available space */}
             <div className="relative z-10 flex flex-1 flex-col items-center justify-center w-full">
-                {/* Trusted Pill */}
-                <div className="animate-fade-in-up">
-                    <div className="flex items-center gap-2 p-1 pr-4 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-full shadow-sm mb-12 hover:shadow-md transition-shadow cursor-default">
-                        <div className="flex -space-x-2">
-                            {[1, 2, 3].map((i) => (
-                                <div key={i} className={`w-8 h-8 rounded-full border-2 border-white dark:border-zinc-900 bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900 dark:to-orange-800 flex items-center justify-center text-[10px] font-bold text-orange-600 dark:text-orange-300`}>
-                                    CN
-                                </div>
-                            ))}
-                        </div>
-                        <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                            Trusted by bold companies worldwide.
-                        </span>
-                    </div>
-                </div>
 
                 <div className="flex flex-col items-center text-center max-w-5xl px-4 animate-fade-in-up delay-100">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 dark:text-white mb-8 leading-[1.1]">
-                        Build <LineShadowText className="italic" shadowColor="black">Smarter</LineShadowText>,<br className="hidden md:block" />{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-blue-600">Ship Faster.</span>
+
+                    {/* Trust Badge */}
+                    <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/50 px-3 py-1 text-sm text-zinc-600 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-400">
+                        <span className="flex -space-x-2">
+                            {[1, 2, 3].map((i) => (
+                                <div key={i} className="h-6 w-6 rounded-full border-2 border-white bg-zinc-100 dark:border-black dark:bg-zinc-800" />
+                            ))}
+                        </span>
+                        <span className="font-medium">Trusted by bold companies</span>
+                    </div>
+
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 dark:text-white mb-8 leading-[1.1] drop-shadow-sm">
+                        Build <LineShadowText className="italic" shadowColor="rgba(var(--primary-rgb), 0.5)">Smarter</LineShadowText>,<br className="hidden md:block" />{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-blue-600 animate-gradient-x">Ship Faster.</span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl leading-relaxed font-medium">
                         Helping businesses grow with clean code and scalable solutions.
                         We turn your ideas into high-performance digital products.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-200">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-200 mt-4">
                         <Button
                             size="lg"
                             onClick={handleGetStarted}
-                            className="h-12 px-8 rounded-full text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                            className="group relative h-14 px-8 rounded-full text-lg font-bold tracking-wide shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-1 transition-all duration-300 bg-gradient-to-r from-orange-500 to-red-600 text-white border-0"
                         >
-                            Start Project
-                            <ArrowRight className="w-4 h-4" />
+                            <span className="relative z-10 flex items-center gap-2">
+                                Start Your Project
+                                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                            </span>
+                        </Button>
+
+                        <Button
+                            asChild
+                            variant="ghost"
+                            size="lg"
+                            className="h-14 px-8 rounded-full text-lg font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all"
+                        >
+                            <Link href="/#portfolio">
+                                View Portfolio
+                            </Link>
                         </Button>
                     </div>
                 </div>
@@ -72,21 +82,70 @@ export default function Hero() {
                         </p>
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-opacity">
-                        <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 font-semibold text-lg">
-                            <Component className="w-6 h-6" /> React
+                    <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
+                        {/* React */}
+                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
+                            <div className="relative w-6 h-6">
+                                <Image
+                                    src="/icons/react.svg"
+                                    alt="React"
+                                    fill
+                                    className="object-contain group-hover:drop-shadow-[0_0_6px_rgba(97,218,251,0.5)] transition-all"
+                                />
+                            </div>
+                            React
                         </div>
-                        <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 font-semibold text-lg">
-                            <Zap className="w-6 h-6" /> Next.js
+
+                        {/* Next.js */}
+                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
+                            <div className="relative w-6 h-6">
+                                <Image
+                                    src="/icons/nextjs.svg"
+                                    alt="Next.js"
+                                    fill
+                                    className="object-contain dark:invert group-hover:drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] dark:group-hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.5)] transition-all"
+                                />
+                            </div>
+                            Next.js
                         </div>
-                        <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 font-semibold text-lg">
-                            <Server className="w-6 h-6" /> Laravel
+
+                        {/* Laravel */}
+                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
+                            <div className="relative w-6 h-6">
+                                <Image
+                                    src="/icons/laravel.svg"
+                                    alt="Laravel"
+                                    fill
+                                    className="object-contain group-hover:drop-shadow-[0_0_6px_rgba(255,45,32,0.5)] transition-all"
+                                />
+                            </div>
+                            Laravel
                         </div>
-                        <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 font-semibold text-lg">
-                            <Database className="w-6 h-6" /> Supabase
+
+                        {/* Supabase */}
+                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
+                            <div className="relative w-6 h-6">
+                                <Image
+                                    src="/icons/supabase.svg"
+                                    alt="Supabase"
+                                    fill
+                                    className="object-contain group-hover:drop-shadow-[0_0_6px_rgba(62,207,142,0.5)] transition-all"
+                                />
+                            </div>
+                            Supabase
                         </div>
-                        <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 font-semibold text-lg">
-                            <Database className="w-6 h-6" /> Postgres
+
+                        {/* Postgres */}
+                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
+                            <div className="relative w-6 h-6">
+                                <Image
+                                    src="/icons/postgresql.svg"
+                                    alt="PostgreSQL"
+                                    fill
+                                    className="object-contain group-hover:drop-shadow-[0_0_6px_rgba(51,103,145,0.5)] transition-all"
+                                />
+                            </div>
+                            Postgres
                         </div>
                     </div>
                 </div>

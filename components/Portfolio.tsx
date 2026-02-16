@@ -39,81 +39,134 @@ export default function Portfolio() {
         };
     }, []);
 
+    const projectColors = [
+        "from-blue-500/20 to-purple-500/20",
+        "from-emerald-500/20 to-teal-500/20",
+        "from-orange-500/20 to-red-500/20",
+    ];
+
     return (
-        <section className="bg-zinc-50 dark:bg-zinc-900 py-24" id="portfolio">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="mb-20">
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
-                        Selected Works
+        <section className="relative bg-zinc-50 dark:bg-zinc-950 py-32" id="portfolio">
+            {/* Background Wrapper (Clipped) */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {/* Dynamic Background Gradient */}
+                <div className="absolute inset-0 transition-opacity duration-1000 ease-in-out">
+                    <div className={`absolute top-0 right-0 w-[1000px] h-[1000px] bg-gradient-to-br ${projectColors[activeProject % projectColors.length]} rounded-full blur-[120px] opacity-60 dark:opacity-40 transition-all duration-1000 -translate-y-1/2 translate-x-1/4`} />
+                </div>
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)] opacity-50" />
+            </div>
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="mb-32">
+                    <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-gray-900 dark:text-white mb-8">
+                        Selected <span className="text-zinc-400 dark:text-zinc-600">Works</span>
                     </h2>
-                    <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl">
-                        We build digital products that define brands. Here are a few of our recent success stories.
+                    <div className="h-1 w-20 bg-primary rounded-full mb-8" />
+                    <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed font-medium">
+                        Crafting digital experiences that merge art with engineering. Explore our latest featured projects.
                     </p>
                 </div>
 
-                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-                    {/* Left Column: Text Content */}
-                    <div className="flex flex-col gap-8 lg:gap-0">
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+                    {/* Left Column: Project Details */}
+                    <div className="flex flex-col gap-20 lg:gap-32 pb-32">
                         {projects.map((project, index) => (
                             <div
                                 key={project.id}
                                 ref={(el) => { observerRefs.current[index] = el; }}
-                                className="min-h-[80vh] flex flex-col justify-center py-12"
+                                className={`flex flex-col justify-center transition-all duration-500 ${activeProject === index ? 'opacity-100 translate-x-0' : 'opacity-40 translate-x-4 lg:opacity-30'}`}
                             >
-                                <div className="flex items-center gap-2 mb-4">
-                                    <span className={`w-2 h-2 rounded-full ${project.color}`}></span>
-                                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{project.category}</span>
+                                <div className="flex items-center gap-4 mb-6">
+                                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 uppercase tracking-widest">
+                                        {project.category}
+                                    </span>
+                                    <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800" />
+                                    <span className="text-sm font-mono text-zinc-400 dark:text-zinc-500">0{index + 1}</span>
                                 </div>
-                                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+
+                                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
                                     {project.title}
                                 </h3>
 
-                                {/* Mobile Image */}
-                                <div className="lg:hidden relative w-full h-64 rounded-xl overflow-hidden mb-6 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+                                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8 font-medium">
+                                    {project.description}
+                                </p>
+
+                                {/* Mock Tech Stack */}
+                                <div className="flex flex-wrap gap-2 mb-10">
+                                    {['React', 'TypeScript', 'Tailwind', 'Motion'].map((tech) => (
+                                        <span key={tech} className="text-sm font-medium px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 shadow-sm">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="flex items-center gap-6">
+                                    <a href="#" className="group flex items-center gap-2 text-lg font-bold text-gray-900 dark:text-white hover:text-primary transition-colors">
+                                        View Case Study
+                                        <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                    </a>
+                                </div>
+
+                                {/* Mobile-only Image (for when sticky is hidden) */}
+                                <div className="lg:hidden mt-10 relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
                                         src={project.image}
                                         alt={project.title}
                                         fill
-                                        className="object-cover object-top"
-                                        priority={index === 0}
+                                        className="object-cover"
                                     />
                                 </div>
-
-                                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-                                    {project.description}
-                                </p>
-
                             </div>
                         ))}
                     </div>
 
-                    {/* Right Column: Sticky Image */}
-                    <div className="hidden lg:block relative h-[80vh] sticky top-24">
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xl">
-                            {/* Mockup Window Header */}
-                            <div className="absolute top-0 left-0 right-0 h-10 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 flex items-center px-4 gap-2 z-10">
-                                <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                            </div>
+                    {/* Right Column: Sticky Mockups Container (Track) */}
+                    <div className="hidden lg:block relative">
+                        {/* Sticky Element */}
+                        <div className="sticky top-24 h-[600px] w-full flex items-center justify-center">
 
-                            {/* Image Area */}
-                            <div className="absolute inset-0 top-10 bg-zinc-100 dark:bg-zinc-900">
-                                {projects.map((project, index) => (
-                                    <div
-                                        key={project.id}
-                                        className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${activeProject === index ? 'opacity-100' : 'opacity-0'}`}
-                                    >
-                                        <Image
-                                            src={project.image}
-                                            alt={project.title}
-                                            fill
-                                            className="object-cover object-top"
-                                            priority={index === 0}
-                                        />
+                            {projects.map((project, index) => (
+                                <div
+                                    key={project.id}
+                                    className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${activeProject === index ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'}`}
+                                >
+                                    {/* Desktop Mockup */}
+                                    <div className="relative w-full aspect-[16/10] rounded-xl bg-zinc-900 border border-zinc-800 shadow-2xl overflow-hidden transform transition-transform duration-700 hover:scale-[1.02]">
+                                        {/* Browser Header */}
+                                        <div className="h-8 bg-zinc-800 flex items-center gap-2 px-3 border-b border-zinc-700">
+                                            <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                                            <div className="ml-4 flex-1 max-w-[200px] h-5 rounded bg-zinc-700/50 flex items-center px-2">
+                                                <span className="text-[10px] text-zinc-400 truncate">freshstart.ph/projects/{project.title.toLowerCase().replace(/\s/g, '-')}</span>
+                                            </div>
+                                        </div>
+                                        <div className="relative w-full h-full bg-zinc-800">
+                                            <Image
+                                                src={project.image}
+                                                alt={project.title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
                                     </div>
-                                ))}
-                            </div>
+
+                                    {/* Floating Mobile Mockup (Decorative) */}
+                                    <div className="absolute -bottom-10 -right-8 w-[25%] aspect-[9/19] rounded-[2rem] bg-zinc-900 border-[6px] border-zinc-800 shadow-2xl overflow-hidden hidden xl:block animate-float">
+                                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-4 bg-zinc-800 rounded-b-xl z-20" />
+                                        <div className="relative w-full h-full bg-zinc-800">
+                                            <Image
+                                                src={project.image}
+                                                alt={project.title}
+                                                fill
+                                                className="object-cover object-left"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -121,4 +174,3 @@ export default function Portfolio() {
         </section>
     );
 }
-

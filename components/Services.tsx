@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Code, ShoppingBag, Laptop, Palette, Smartphone, Wrench, ArrowUpRight, X } from "lucide-react";
+import { Code, ShoppingBag, Laptop, Palette, Smartphone, Wrench, ArrowUpRight, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -41,12 +41,16 @@ export default function Services() {
     return (
         <section className="py-20 px-6 md:px-12 relative overflow-hidden" id="services">
             {/* Background with dot pattern and radial fade */}
-            <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)]"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(250,250,250,0.7)_50%,rgba(250,250,250,1)_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(9,9,11,0.7)_50%,rgba(9,9,11,1)_100%)]"></div>
+            {/* Background with dot pattern and radial fade */}
+            <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)] opacity-50"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_200px,rgba(var(--primary-rgb),0.15),transparent)]"></div>
 
             <div className="relative max-w-7xl mx-auto">
-                <div className="mb-10">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Services We Offer</h2>
+                <div className="mb-16 text-center">
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-gray-900 dark:text-white mb-4">Services We Offer</h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Comprehensive solutions tailored to elevate your business in the digital landscape.
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -54,20 +58,30 @@ export default function Services() {
                         <Card
                             key={index}
                             onClick={() => handleServiceClick(service)}
-                            className="group relative overflow-hidden p-6 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/40 dark:hover:border-orange-500/30 hover:bg-orange-50/40 dark:hover:bg-orange-900/10 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-orange-500/5 cursor-pointer"
+                            className="group relative overflow-hidden p-8 rounded-3xl bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/50 hover:border-primary/30 hover:bg-white/90 dark:hover:bg-zinc-900/60 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 cursor-pointer flex flex-col h-full"
                         >
-                            <div className="absolute top-0 right-0 w-24 h-24 -translate-y-8 translate-x-8 rounded-full bg-orange-500/5 group-hover:bg-orange-500/10 transition-colors duration-300" />
-                            <div className="relative">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="p-3 rounded-xl bg-zinc-100 dark:bg-zinc-800/80 text-orange-500 group-hover:bg-orange-50 dark:group-hover:bg-orange-900/20 transition-colors duration-300">
+                            <div className="absolute top-0 right-0 w-32 h-32 -translate-y-12 translate-x-12 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors duration-500 blur-2xl" />
+
+                            <div className="relative flex-1 flex flex-col">
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className="p-3.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800/80 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm">
                                         <service.icon className="w-6 h-6" />
                                     </div>
-                                    <ArrowUpRight className="w-5 h-5 text-zinc-300 dark:text-zinc-600 group-hover:text-orange-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                                    <div className="p-2 rounded-full bg-transparent group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800 transition-colors duration-300">
+                                        <ArrowUpRight className="w-5 h-5 text-zinc-400 dark:text-zinc-600 group-hover:text-primary transition-colors duration-300" />
+                                    </div>
                                 </div>
-                                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white tracking-tight">{service.title}</h3>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+
+                                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white tracking-tight group-hover:text-primary transition-colors duration-300">
+                                    {service.title}
+                                </h3>
+                                <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed mb-6 flex-1">
                                     {service.description}
                                 </p>
+
+                                <span className="inline-flex items-center text-sm font-semibold text-primary/80 group-hover:text-primary transition-colors">
+                                    Learn more <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                                </span>
                             </div>
                         </Card>
                     ))}
@@ -81,8 +95,8 @@ export default function Services() {
                         <>
                             <DialogHeader>
                                 <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20">
-                                        <selectedService.icon className="w-6 h-6 text-orange-500" />
+                                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                                        <selectedService.icon className="w-6 h-6" />
                                     </div>
                                     <DialogTitle className="text-2xl">{selectedService.title}</DialogTitle>
                                 </div>
@@ -98,7 +112,7 @@ export default function Services() {
                                     <ul className="space-y-2">
                                         {selectedService.details.features.map((feature, idx) => (
                                             <li key={idx} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                                <span className="text-orange-500 mt-1">✓</span>
+                                                <span className="text-primary mt-1">✓</span>
                                                 <span>{feature}</span>
                                             </li>
                                         ))}
