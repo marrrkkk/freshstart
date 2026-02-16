@@ -32,9 +32,12 @@ const steps = [
 
 export default function Process() {
     return (
-        <section className="py-24 relative overflow-hidden" id="process">
+        <section className="py-32 relative overflow-hidden bg-zinc-50 dark:bg-zinc-950" id="process">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)] opacity-50 pointer-events-none" />
+
+            {/* Central Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-full max-h-[800px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
 
             <div className="relative max-w-6xl mx-auto px-6 z-10">
                 <div className="mb-24 text-center max-w-3xl mx-auto">
@@ -66,25 +69,25 @@ export default function Process() {
                                 </div>
 
                                 {/* Content Card */}
-                                <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? 'order-2 md:pl-12' : 'order-1 md:pr-12'}`}>
-                                    <Card className="relative p-8 rounded-3xl bg-white/70 dark:bg-zinc-900/60 backdrop-blur-md border border-white/20 dark:border-zinc-800 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group-hover:-translate-y-1 overflow-hidden">
+                                <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? 'order-2 md:pl-16' : 'order-1 md:pr-16'}`}>
+                                    <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-0.5 w-16 bg-gradient-to-r from-primary/50 to-transparent ${index % 2 === 0 ? 'left-1/2' : 'right-1/2 transform rotate-180'}`} />
 
-                                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-16 translate-x-16" />
+                                    <Card className="relative p-10 rounded-[2.5rem] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-xl border border-white/20 dark:border-zinc-800 hover:border-primary/50 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10 overflow-hidden">
+
+                                        {/* Watermark Number */}
+                                        <div className="absolute -top-6 -right-6 text-9xl font-bold text-zinc-100 dark:text-zinc-800/50 select-none pointer-events-none z-0">
+                                            {step.number}
+                                        </div>
 
                                         <div className="relative z-10">
-                                            <div className="flex items-center gap-4 mb-6">
-                                                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
-                                                    <step.icon className="w-6 h-6" />
-                                                </div>
-                                                <span className="text-4xl font-bold text-gray-200 dark:text-zinc-800 group-hover:text-primary/20 transition-colors duration-300">
-                                                    {step.number}
-                                                </span>
+                                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent flex items-center justify-center text-primary mb-8 shadow-inner border border-primary/10 group-hover:scale-110 transition-transform duration-500">
+                                                <step.icon className="w-8 h-8" />
                                             </div>
 
-                                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                                            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                                                 {step.description}
                                             </p>
                                         </div>

@@ -4,7 +4,7 @@ import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="relative bg-zinc-950 text-white pt-20 pb-10 overflow-hidden border-t border-white/10">
+        <footer className="relative bg-zinc-950 text-white pt-24 pb-12 overflow-hidden border-t border-white/5">
             {/* Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
@@ -15,11 +15,12 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand Column */}
                     <div className="space-y-6">
-                        <Link href="/" className="flex items-center gap-2 group">
-                            <div className="relative w-10 h-10 transition-transform duration-300 group-hover:scale-110">
-                                <Image src="/logo.png" alt="FreshStart PH Logo" fill className="object-contain brightness-0 invert" />
+                        <Link href="/" className="flex items-center gap-3 group">
+                            <div className="relative w-8 h-8 transition-transform duration-300 group-hover:rotate-12">
+                                <span className="absolute inset-0 bg-primary rounded-lg rotate-3 group-hover:rotate-6 transition-transform" />
+                                <span className="absolute inset-0 bg-white rounded-lg flex items-center justify-center text-black font-bold">F</span>
                             </div>
-                            <span className="text-2xl font-bold tracking-tight text-white">FreshStart PH</span>
+                            <span className="text-2xl font-bold tracking-tighter text-white">FreshStart.</span>
                         </Link>
                         <p className="text-zinc-400 leading-relaxed text-sm max-w-xs">
                             Building digital experiences that matter. We help forward-thinking companies scalpable, performant, and beautiful software.
