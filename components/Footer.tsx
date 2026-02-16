@@ -16,11 +16,10 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="space-y-6">
                         <Link href="/" className="flex items-center gap-3 group">
-                            <div className="relative w-8 h-8 transition-transform duration-300 group-hover:rotate-12">
-                                <span className="absolute inset-0 bg-primary rounded-lg rotate-3 group-hover:rotate-6 transition-transform" />
-                                <span className="absolute inset-0 bg-white rounded-lg flex items-center justify-center text-black font-bold">F</span>
+                            <div className="relative w-8 h-8 transition-transform duration-300 group-hover:scale-110">
+                                <Image src="/logo.png" alt="FreshStart PH Logo" fill className="object-contain brightness-0 invert" />
                             </div>
-                            <span className="text-2xl font-bold tracking-tighter text-white">FreshStart.</span>
+                            <span className="text-2xl font-bold tracking-tighter text-white">FreshStart PH</span>
                         </Link>
                         <p className="text-zinc-400 leading-relaxed text-sm max-w-xs">
                             Building digital experiences that matter. We help forward-thinking companies scalpable, performant, and beautiful software.

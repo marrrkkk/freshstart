@@ -60,6 +60,9 @@ export default function Process() {
                                 {/* Timeline Line Segment */}
                                 <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-primary/20 via-primary/50 to-primary/20 hidden md:block" />
 
+                                {/* Mobile Connector */}
+                                <div className="absolute left-8 top-8 w-8 h-0.5 bg-gradient-to-r from-primary/50 to-transparent md:hidden" />
+
                                 {/* Empty Spacer for Desktop Balance */}
                                 <div className={`hidden md:block md:w-1/2 ${index % 2 === 0 ? 'order-1' : 'order-2'}`}></div>
 
@@ -69,25 +72,25 @@ export default function Process() {
                                 </div>
 
                                 {/* Content Card */}
-                                <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? 'order-2 md:pl-16' : 'order-1 md:pr-16'}`}>
+                                <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? 'md:order-2 md:pl-16' : 'md:order-1 md:pr-16'}`}>
                                     <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-0.5 w-16 bg-gradient-to-r from-primary/50 to-transparent ${index % 2 === 0 ? 'left-1/2' : 'right-1/2 transform rotate-180'}`} />
 
-                                    <Card className="relative p-10 rounded-[2.5rem] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-xl border border-white/20 dark:border-zinc-800 hover:border-primary/50 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10 overflow-hidden">
+                                    <Card className="relative p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-xl border border-white/20 dark:border-zinc-800 hover:border-primary/50 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10 overflow-hidden">
 
                                         {/* Watermark Number */}
-                                        <div className="absolute -top-6 -right-6 text-9xl font-bold text-zinc-100 dark:text-zinc-800/50 select-none pointer-events-none z-0">
+                                        <div className="absolute -top-4 -right-4 text-6xl md:text-9xl font-bold text-zinc-100 dark:text-zinc-800/50 select-none pointer-events-none z-0">
                                             {step.number}
                                         </div>
 
                                         <div className="relative z-10">
-                                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent flex items-center justify-center text-primary mb-8 shadow-inner border border-primary/10 group-hover:scale-110 transition-transform duration-500">
-                                                <step.icon className="w-8 h-8" />
+                                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent flex items-center justify-center text-primary mb-6 md:mb-8 shadow-inner border border-primary/10 group-hover:scale-110 transition-transform duration-500">
+                                                <step.icon className="w-6 h-6 md:w-8 md:h-8" />
                                             </div>
 
-                                            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
+                                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 tracking-tight">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                                            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                                                 {step.description}
                                             </p>
                                         </div>
