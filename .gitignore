@@ -22,6 +22,9 @@
 
 # misc
 .DS_Store
+*:[Zz]one.Identifier
+.Trash-*
+.nfs*
 *.pem
 
 # debug
