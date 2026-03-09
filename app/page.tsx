@@ -7,6 +7,7 @@ import Process from "@/components/Process";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import seoData from "@/data/seo.json";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }

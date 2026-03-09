@@ -16,7 +16,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative flex flex-col items-center min-h-screen w-full overflow-hidden bg-white dark:bg-black pt-32 md:pt-40 pb-20 border-b border-gray-100 dark:border-zinc-800">
+        <section className="relative flex flex-col items-center min-h-screen w-full overflow-hidden bg-white dark:bg-black pt-32 md:pt-48 pb-20 border-b border-gray-100 dark:border-zinc-800">
             {/* Grid Background & Ambient Glow */}
             <div className="absolute inset-0 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none opacity-50 dark:opacity-30" />
@@ -26,15 +26,6 @@ export default function Hero() {
 
                 <div className="flex flex-col items-center text-center max-w-5xl px-4 animate-fade-in-up delay-100">
 
-                    {/* Trust Badge */}
-                    <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/50 px-3 py-1 text-sm text-zinc-600 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-400">
-                        <span className="flex -space-x-2">
-                            {[1, 2, 3].map((i) => (
-                                <div key={i} className="h-6 w-6 rounded-full border-2 border-white bg-zinc-100 dark:border-black dark:bg-zinc-800" />
-                            ))}
-                        </span>
-                        <span className="font-medium">Trusted by bold companies</span>
-                    </div>
 
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 dark:text-white mb-8 leading-[1.1] drop-shadow-sm">
                         Build <LineShadowText className="italic" shadowColor="rgba(var(--primary-rgb), 0.5)">Smarter</LineShadowText>,<br className="hidden md:block" />{" "}
