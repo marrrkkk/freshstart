@@ -1,146 +1,111 @@
-"use client";
-
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, Sparkles } from "lucide-react";
 
-import { LineShadowText } from "./ui/line-shadow-text";
+const capabilities = [
+  "Conversion-first websites",
+  "Full-stack product builds",
+  "Brand refreshes with code",
+  "Launch support in weeks, not quarters",
+];
+
+const stack = ["Next.js", "React 19", "TypeScript", "Supabase", "Laravel", "Vercel"];
 
 export default function Hero() {
-    const handleGetStarted = () => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+  return (
+    <section className="section-frame relative grid min-h-screen gap-10 px-1 pb-16 pt-32 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:pb-24 lg:pt-40">
+      <div className="relative z-10">
+        <div className="section-kicker mb-6">Philippines-based digital studio</div>
+        <h1 className="max-w-4xl text-[3.4rem] leading-[0.92] text-[#171717] sm:text-[4.6rem] lg:text-[7.2rem]">
+          We design websites that look expensive and perform like products.
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-black/70 sm:text-xl">
+          FreshStart builds launch-ready websites, ecommerce experiences, and internal tools for teams that need more than a template. The direction is editorial, technical, and built to convert.
+        </p>
 
-    return (
-        <section className="relative flex flex-col items-center min-h-screen w-full overflow-hidden bg-white dark:bg-black pt-32 md:pt-48 pb-20 border-b border-gray-100 dark:border-zinc-800">
-            {/* Grid Background & Ambient Glow */}
-            <div className="absolute inset-0 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none opacity-50 dark:opacity-30" />
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <Link
+            href="/#contact"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-[#d55d3f] px-7 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-white shadow-[0_18px_34px_rgba(213,93,63,0.28)]"
+          >
+            Start your project
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link
+            href="/#portfolio"
+            className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white/70 px-7 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-black"
+          >
+            See selected work
+          </Link>
+        </div>
 
-            {/* Hero Content - centered in available space */}
-            <div className="relative z-10 flex flex-1 flex-col items-center justify-center w-full">
+        <div className="mt-10 grid gap-3 sm:grid-cols-2">
+          {capabilities.map((item) => (
+            <div
+              key={item}
+              className="surface-card rounded-[1.5rem] px-5 py-4 text-sm font-medium text-black/72"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
 
-                <div className="flex flex-col items-center text-center max-w-5xl px-4 animate-fade-in-up delay-100">
+      <div className="relative">
+        <div className="surface-card angled-panel relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
+          <div className="absolute inset-x-6 top-6 flex items-center justify-between text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black/45">
+            <span>FreshStart dispatch</span>
+            <span>Issue 01</span>
+          </div>
 
-
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 dark:text-white mb-8 leading-[1.1] drop-shadow-sm">
-                        Build <LineShadowText className="italic" shadowColor="rgba(var(--primary-rgb), 0.5)">Smarter</LineShadowText>,<br className="hidden md:block" />{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-blue-600 animate-gradient-x">Ship Faster.</span>
-                    </h1>
-
-                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl leading-relaxed font-medium">
-                        Helping businesses grow with clean code and scalable solutions.
-                        We turn your ideas into high-performance digital products.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-200 mt-4">
-                        <Button
-                            size="lg"
-                            onClick={handleGetStarted}
-                            className="group relative h-14 px-8 rounded-full text-lg font-bold tracking-wide shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-1 transition-all duration-300 bg-gradient-to-r from-orange-500 to-red-600 text-white border-0"
-                        >
-                            <span className="relative z-10 flex items-center gap-2">
-                                Start Your Project
-                                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                            </span>
-                        </Button>
-
-                        <Button
-                            asChild
-                            variant="ghost"
-                            size="lg"
-                            className="h-14 px-8 rounded-full text-lg font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all"
-                        >
-                            <Link href="/#portfolio">
-                                View Portfolio
-                            </Link>
-                        </Button>
-                    </div>
-                </div>
+          <div className="mt-12 grid gap-6">
+            <div className="rounded-[1.75rem] border border-black/10 bg-[#171717] p-6 text-[#f6f0e3] shadow-[0_18px_50px_rgba(23,23,23,0.22)]">
+              <div className="flex items-center justify-between">
+                <span className="text-xs uppercase tracking-[0.2em] text-[#f6f0e3]/60">Current focus</span>
+                <Sparkles className="h-4 w-4 text-[#f5ceb1]" />
+              </div>
+              <p className="mt-8 font-display text-3xl leading-tight sm:text-4xl">
+                Quiet luxury visuals.
+                <br />
+                Loudly effective funnels.
+              </p>
             </div>
 
-            {/* Tools / Logos Section - always below hero with clear spacing */}
-            <div className="relative z-10 flex-shrink-0 mt-16 md:mt-20 w-full py-10 md:py-12 animate-fade-in-up delay-300">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-10">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">The Tools Behind Our Magic</h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                            We use the latest frameworks and tools to deliver fast, secure, and scalable digital experiences.
-                        </p>
-                    </div>
-
-                    <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
-                        {/* React */}
-                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
-                            <div className="relative w-6 h-6">
-                                <Image
-                                    src="/icons/react.svg"
-                                    alt="React"
-                                    fill
-                                    className="object-contain group-hover:drop-shadow-[0_0_6px_rgba(97,218,251,0.5)] transition-all"
-                                />
-                            </div>
-                            React
-                        </div>
-
-                        {/* Next.js */}
-                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
-                            <div className="relative w-6 h-6">
-                                <Image
-                                    src="/icons/nextjs.svg"
-                                    alt="Next.js"
-                                    fill
-                                    className="object-contain dark:invert group-hover:drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] dark:group-hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.5)] transition-all"
-                                />
-                            </div>
-                            Next.js
-                        </div>
-
-                        {/* Laravel */}
-                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
-                            <div className="relative w-6 h-6">
-                                <Image
-                                    src="/icons/laravel.svg"
-                                    alt="Laravel"
-                                    fill
-                                    className="object-contain group-hover:drop-shadow-[0_0_6px_rgba(255,45,32,0.5)] transition-all"
-                                />
-                            </div>
-                            Laravel
-                        </div>
-
-                        {/* Supabase */}
-                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
-                            <div className="relative w-6 h-6">
-                                <Image
-                                    src="/icons/supabase.svg"
-                                    alt="Supabase"
-                                    fill
-                                    className="object-contain group-hover:drop-shadow-[0_0_6px_rgba(62,207,142,0.5)] transition-all"
-                                />
-                            </div>
-                            Supabase
-                        </div>
-
-                        {/* Postgres */}
-                        <div className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-800 text-gray-600 dark:text-gray-400 font-semibold text-lg hover:border-primary/20 hover:text-primary transition-all duration-300 hover:-translate-y-1 cursor-default">
-                            <div className="relative w-6 h-6">
-                                <Image
-                                    src="/icons/postgresql.svg"
-                                    alt="PostgreSQL"
-                                    fill
-                                    className="object-contain group-hover:drop-shadow-[0_0_6px_rgba(51,103,145,0.5)] transition-all"
-                                />
-                            </div>
-                            Postgres
-                        </div>
-                    </div>
+            <div className="grid gap-4 sm:grid-cols-[0.85fr_1.15fr]">
+              <div className="rounded-[1.5rem] border border-black/10 bg-white/70 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/45">Studio rhythm</p>
+                <div className="mt-5 space-y-5">
+                  <div>
+                    <p className="text-4xl font-semibold text-[#171717]">2-6</p>
+                    <p className="mt-1 text-sm text-black/60">week launch windows</p>
+                  </div>
+                  <div>
+                    <p className="text-4xl font-semibold text-[#171717]">100%</p>
+                    <p className="mt-1 text-sm text-black/60">custom builds, no themes</p>
+                  </div>
                 </div>
+              </div>
+
+              <div className="rounded-[1.5rem] border border-black/10 bg-[#efe4d3] p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/45">Stack</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {stack.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-black/70"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-        </section>
-    );
+
+            <div className="rounded-[1.5rem] border border-dashed border-black/20 px-5 py-4 text-sm leading-7 text-black/70">
+              We treat every page like a cover story: a stronger narrative, clearer hierarchy, faster interactions, and better reasons for visitors to contact you.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

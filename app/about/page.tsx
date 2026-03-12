@@ -1,135 +1,147 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { Facebook, Github, GraduationCap, Linkedin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Particles from "@/components/Particles";
-import { GraduationCap, Facebook, Linkedin, Github } from "lucide-react";
-import { Card } from "@/components/ui/card";
 import siteData from "@/data/data.json";
 import seoData from "@/data/seo.json";
-import Link from "next/link";
 
 export const metadata: Metadata = {
+  title: seoData.pages.about.title,
+  description: seoData.pages.about.description,
+  keywords: seoData.pages.about.keywords,
+  openGraph: {
     title: seoData.pages.about.title,
     description: seoData.pages.about.description,
-    keywords: seoData.pages.about.keywords,
-    openGraph: {
-        title: seoData.pages.about.title,
-        description: seoData.pages.about.description,
-        url: `${seoData.seo.siteUrl}/about`,
-    },
-    twitter: {
-        title: seoData.pages.about.title,
-        description: seoData.pages.about.description,
-    },
-    alternates: {
-        canonical: `${seoData.seo.siteUrl}/about`,
-    },
+    url: `${seoData.seo.siteUrl}/about`,
+  },
+  twitter: {
+    title: seoData.pages.about.title,
+    description: seoData.pages.about.description,
+  },
+  alternates: {
+    canonical: `${seoData.seo.siteUrl}/about`,
+  },
+};
+
+const socialIcons = {
+  facebook: Facebook,
+  linkedin: Linkedin,
+  github: Github,
 };
 
 export default function AboutPage() {
-    const { about } = siteData;
+  const { about } = siteData;
 
-    return (
-        <main className="min-h-screen bg-white dark:bg-black">
-            <Navbar />
+  return (
+    <main className="page-shell min-h-screen">
+      <Navbar />
 
-            {/* Hero Section */}
-            {/* Hero Section */}
-            <section className="relative pt-40 pb-20 px-6 overflow-hidden">
-                {/* Background Glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_200px,rgba(var(--primary-rgb),0.1),transparent)] pointer-events-none"></div>
+      <section className="section-frame px-1 pb-16 pt-32 sm:pt-40">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <div className="section-kicker">About FreshStart</div>
+            <h1 className="mt-6 max-w-4xl text-[3.2rem] leading-[0.94] text-[#171717] sm:text-[4.4rem] lg:text-[6.5rem]">
+              {about.hero.title}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-black/70 sm:text-xl">
+              {about.hero.description}
+            </p>
+          </div>
 
-                <Particles />
-                <div className="relative z-10 max-w-4xl mx-auto text-center">
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-gray-900 dark:text-white mb-6">
-                        {about.hero.title.split('FreshStart.')[0]}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-blue-600 animate-gradient-x">FreshStart.</span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed font-medium">
-                        {about.hero.description}
-                    </p>
+          <div className="surface-card rounded-[2rem] p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/42">
+              Studio note
+            </p>
+            <p className="mt-6 font-display text-3xl leading-tight text-[#171717] sm:text-4xl">
+              We care about the front-end because it is the first proof that the rest of the business is sharp.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[1.5rem] border border-black/10 bg-white/55 p-5">
+                <p className="text-4xl font-semibold text-[#171717]">Student-founded</p>
+                <p className="mt-2 text-sm leading-7 text-black/60">
+                  Built with urgency, experimentation, and a bias toward shipping.
+                </p>
+              </div>
+              <div className="rounded-[1.5rem] border border-black/10 bg-[#efe4d3] p-5">
+                <p className="text-4xl font-semibold text-[#171717]">Product-minded</p>
+                <p className="mt-2 text-sm leading-7 text-black/60">
+                  Design choices and code choices are treated as the same system.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 sm:pb-24">
+        <div className="section-frame">
+          <div className="mb-10">
+            <div className="section-kicker">Founders</div>
+            <h2 className="mt-6 text-5xl leading-none text-[#171717] sm:text-6xl">
+              {about.founders.sectionTitle}
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-8 text-black/70 sm:text-lg">
+              {about.founders.sectionSubtitle}
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {about.founders.team.map((founder, index) => (
+              <article
+                key={founder.name}
+                className={`surface-card rounded-[2rem] p-6 sm:p-8 ${index % 2 === 1 ? "lg:translate-y-10" : ""}`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-[#171717] text-[#f6f0e3]">
+                    <GraduationCap className="h-7 w-7" />
+                  </span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-black/38">
+                    {founder.education}
+                  </span>
                 </div>
-            </section>
 
-            {/* Founders Section */}
-            <section className="py-24">
-                <div className="max-w-4xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                            {about.founders.sectionTitle}
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            {about.founders.sectionSubtitle}
-                        </p>
-                    </div>
+                <h3 className="mt-8 text-4xl leading-none text-[#171717]">{founder.name}</h3>
+                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#d55d3f]">
+                  {founder.role}
+                </p>
+                <p className="mt-6 text-base leading-8 text-black/70">{founder.description}</p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {about.founders.team.map((founder, i) => (
-                            <Card key={i} className="relative overflow-hidden p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group text-center shadow-sm">
-                                <div className="absolute top-0 right-0 w-32 h-32 -translate-y-16 translate-x-16 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors duration-500 blur-2xl" />
+                <div className="mt-8 flex gap-3">
+                  {(Object.keys(socialIcons) as Array<keyof typeof socialIcons>).map((key) => {
+                    const href = founder.socials[key];
+                    const Icon = socialIcons[key];
 
-                                <div className="relative">
-                                    <div className="w-24 h-24 mx-auto rounded-full bg-primary/10 mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                        <GraduationCap className="w-10 h-10 text-primary transition-colors" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1 tracking-tight">{founder.name}</h3>
-                                    <p className="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">{founder.role}</p>
-                                    <p className="text-xs text-gray-500 dark:text-gray-500 mb-6 font-medium">{founder.education}</p>
-                                    <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8">
-                                        {founder.description}
-                                    </p>
+                    if (!href) {
+                      return (
+                        <span
+                          key={key}
+                          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/50 text-black/25"
+                        >
+                          <Icon className="h-4 w-4" />
+                        </span>
+                      );
+                    }
 
-                                    {/* Social Media Links */}
-                                    <div className="flex items-center justify-center gap-4 pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                                        {founder.socials.facebook ? (
-                                            <Link
-                                                href={founder.socials.facebook}
-                                                target="_blank"
-                                                className="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1"
-                                            >
-                                                <Facebook className="w-5 h-5" />
-                                            </Link>
-                                        ) : (
-                                            <div className="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-gray-400 flex items-center justify-center opacity-40 cursor-not-allowed">
-                                                <Facebook className="w-5 h-5" />
-                                            </div>
-                                        )}
-                                        {founder.socials.linkedin ? (
-                                            <Link
-                                                href={founder.socials.linkedin}
-                                                target="_blank"
-                                                className="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1"
-                                            >
-                                                <Linkedin className="w-5 h-5" />
-                                            </Link>
-                                        ) : (
-                                            <div className="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-gray-400 flex items-center justify-center opacity-40 cursor-not-allowed">
-                                                <Linkedin className="w-5 h-5" />
-                                            </div>
-                                        )}
-                                        {founder.socials.github ? (
-                                            <Link
-                                                href={founder.socials.github}
-                                                target="_blank"
-                                                className="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1"
-                                            >
-                                                <Github className="w-5 h-5" />
-                                            </Link>
-                                        ) : (
-                                            <div className="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-gray-400 flex items-center justify-center opacity-40 cursor-not-allowed">
-                                                <Github className="w-5 h-5" />
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </Card>
-                        ))}
-                    </div>
+                    return (
+                      <Link
+                        key={key}
+                        href={href}
+                        target="_blank"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/60 text-black/70 hover:-translate-y-0.5 hover:text-black"
+                      >
+                        <Icon className="h-4 w-4" />
+                      </Link>
+                    );
+                  })}
                 </div>
-            </section>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <Footer />
-        </main>
-    );
+      <Footer />
+    </main>
+  );
 }
-

@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import seoData from "@/data/seo.json";
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(seoData.seo.siteUrl),
@@ -90,9 +84,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${jakarta.variable} font-sans antialiased bg-white dark:bg-black`}
-      >
+      <body className="bg-[var(--background)] font-sans antialiased">
         <SmoothScroll />
         {children}
       </body>

@@ -2,6 +2,28 @@
 
 import { useEffect, useRef } from "react";
 
+type Particle = {
+    color: string;
+    size: number;
+    vx: number;
+    vy: number;
+    x: number;
+    y: number;
+};
+
+const PARTICLE_COLORS = ["#D55D3F", "#17443D", "#C08A2B", "#F5CEB1", "#8B3D2C"];
+
+function createParticle(width: number, height: number): Particle {
+    return {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 1,
+        color: PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)],
+    };
+}
+
 export default function Particles() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -23,46 +45,10 @@ export default function Particles() {
         window.addEventListener("resize", resizeCanvas);
         resizeCanvas();
 
-        class Particle {
-            x: number;
-            y: number;
-            vx: number;
-            vy: number;
-            size: number;
-            color: string;
-
-            constructor() {
-                this.x = Math.random() * canvas!.width;
-                this.y = Math.random() * canvas!.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-                // Orange/Blue/Yellow colors to match FreshStart theme
-                const colors = ["#F97316", "#3B82F6", "#EAB308", "#FB923C", "#60A5FA", "#FDE047"];
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas!.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas!.height) this.vy *= -1;
-            }
-
-            draw() {
-                if (!ctx) return;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-        }
-
         const init = () => {
             particles = [];
             for (let i = 0; i < 100; i++) {
-                particles.push(new Particle());
+                particles.push(createParticle(canvas.width, canvas.height));
             }
         };
 
@@ -71,8 +57,16 @@ export default function Particles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             particles.forEach((particle) => {
-                particle.update();
-                particle.draw();
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+
+                if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = particle.color;
+                ctx.fill();
             });
 
             animationFrameId = requestAnimationFrame(animate);

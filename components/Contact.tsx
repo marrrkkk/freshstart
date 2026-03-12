@@ -1,107 +1,129 @@
-"use client";
-
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import Particles from "./Particles";
+
+const contactDetails = [
+  {
+    label: "Email",
+    value: "hello@freshstart.ph",
+    href: "mailto:hello@freshstart.ph",
+    Icon: Mail,
+  },
+  {
+    label: "Phone",
+    value: "+63 912 345 6789",
+    href: "tel:+639123456789",
+    Icon: Phone,
+  },
+  {
+    label: "Location",
+    value: "Lucena City, Philippines",
+    href: "#contact",
+    Icon: MapPin,
+  },
+];
 
 export default function Contact() {
-    return (
-        <section className="relative py-16 md:py-32 bg-zinc-50 dark:bg-zinc-950 overflow-hidden" id="contact">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)] opacity-50 pointer-events-none" />
+  return (
+    <section id="contact" className="py-20 sm:py-24">
+      <div className="section-frame grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="surface-card rounded-[2rem] p-6 sm:p-8">
+          <div className="section-kicker">Contact</div>
+          <h2 className="mt-6 max-w-md text-5xl leading-none text-[#171717] sm:text-6xl">
+            If the current site undersells you, fix that next.
+          </h2>
+          <p className="mt-6 max-w-md text-base leading-8 text-black/70 sm:text-lg">
+            Send the project brief, the pain point, or the rough idea. We can shape the rest from there.
+          </p>
 
-            {/* Gradient Blob */}
-            <div className="absolute top-1/2 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
+          <div className="mt-10 space-y-4">
+            {contactDetails.map((detail) => (
+              <a
+                key={detail.label}
+                href={detail.href}
+                className="flex items-center gap-4 rounded-[1.5rem] border border-black/10 bg-white/55 px-4 py-4"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#171717] text-[#f6f0e3]">
+                  <detail.Icon className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-black/42">
+                    {detail.label}
+                  </span>
+                  <span className="mt-1 block text-base text-black/78">{detail.value}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
 
-            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-                <Particles />
+        <div className="rounded-[2rem] border border-black/10 bg-[#171717] p-6 text-[#f6f0e3] shadow-[0_30px_100px_rgba(23,23,23,0.18)] sm:p-8">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f6f0e3]/45">
+                Project inquiry
+              </p>
+              <h3 className="mt-3 text-3xl sm:text-4xl">Tell us what needs to change.</h3>
             </div>
-            <div className="relative z-10 max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+            <ArrowRight className="hidden h-5 w-5 text-[#f5ceb1] sm:block" />
+          </div>
 
-                    {/* Left Column: Content */}
-                    <div className="flex flex-col justify-center">
-                        <div className="mb-8 md:mb-12">
-                            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-gray-900 dark:text-white mb-4 md:mb-6 leading-tight">
-                                Let's build something <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">amazing together.</span>
-                            </h2>
-                            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-lg leading-relaxed font-medium">
-                                Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.
-                            </p>
-                        </div>
-
-                        <div className="grid gap-4 md:gap-6">
-                            <a href="mailto:hello@freshstart.ph" className="group flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 hover:border-primary/50 hover:bg-white dark:hover:bg-zinc-900 transition-all duration-300">
-                                <div className="p-3 md:p-4 rounded-full bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
-                                    <Mail className="w-5 h-5 md:w-6 md:h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-gray-900 dark:text-white mb-1 text-sm md:text-base">Email Us</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors text-sm md:text-base">hello@freshstart.ph</p>
-                                </div>
-                            </a>
-
-                            <a href="tel:+639123456789" className="group flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 hover:border-primary/50 hover:bg-white dark:hover:bg-zinc-900 transition-all duration-300">
-                                <div className="p-3 md:p-4 rounded-full bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
-                                    <Phone className="w-5 h-5 md:w-6 md:h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-gray-900 dark:text-white mb-1 text-sm md:text-base">Call Us</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors text-sm md:text-base">+63 912 345 6789</p>
-                                </div>
-                            </a>
-
-                            <div className="group flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 hover:border-primary/50 hover:bg-white dark:hover:bg-zinc-900 transition-all duration-300">
-                                <div className="p-3 md:p-4 rounded-full bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
-                                    <MapPin className="w-5 h-5 md:w-6 md:h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-gray-900 dark:text-white mb-1 text-sm md:text-base">Visit Us</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base">Lucena City, Philippines</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column: Form */}
-                    <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-purple-500/5 rounded-3xl blur-xl -z-10" />
-                        <div className="bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl p-6 md:p-10 rounded-3xl border border-white/20 dark:border-zinc-800 shadow-2xl">
-                            <form className="space-y-4 md:space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                                    <div className="space-y-2">
-                                        <label htmlFor="first-name" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">First Name</label>
-                                        <Input type="text" id="first-name" className="w-full px-4 py-3 h-auto rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-all font-medium" placeholder="John" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="last-name" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Last Name</label>
-                                        <Input type="text" id="last-name" className="w-full px-4 py-3 h-auto rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-all font-medium" placeholder="Doe" />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Email Address</label>
-                                    <Input type="email" id="email" className="w-full px-4 py-3 h-auto rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-all font-medium" placeholder="john@example.com" />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label htmlFor="message" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Message</label>
-                                    <Textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-all resize-none font-medium" placeholder="Tell us about your project..." />
-                                </div>
-
-                                <Button type="submit" size="lg" className="w-full py-4 md:py-6 h-auto bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-lg rounded-full shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 border-0">
-                                    Send Message
-                                    <ArrowRight className="w-5 h-5" />
-                                </Button>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
+          <form className="mt-10 grid gap-5">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="grid gap-2 text-sm">
+                <span className="font-semibold uppercase tracking-[0.14em] text-[#f6f0e3]/58">
+                  First name
+                </span>
+                <Input
+                  type="text"
+                  placeholder="John"
+                  className="h-12 rounded-[1rem] border-white/12 bg-white/10 px-4 text-[#f6f0e3] placeholder:text-[#f6f0e3]/35"
+                />
+              </label>
+              <label className="grid gap-2 text-sm">
+                <span className="font-semibold uppercase tracking-[0.14em] text-[#f6f0e3]/58">
+                  Last name
+                </span>
+                <Input
+                  type="text"
+                  placeholder="Doe"
+                  className="h-12 rounded-[1rem] border-white/12 bg-white/10 px-4 text-[#f6f0e3] placeholder:text-[#f6f0e3]/35"
+                />
+              </label>
             </div>
-        </section>
-    );
+
+            <label className="grid gap-2 text-sm">
+              <span className="font-semibold uppercase tracking-[0.14em] text-[#f6f0e3]/58">
+                Email
+              </span>
+              <Input
+                type="email"
+                placeholder="john@company.com"
+                className="h-12 rounded-[1rem] border-white/12 bg-white/10 px-4 text-[#f6f0e3] placeholder:text-[#f6f0e3]/35"
+              />
+            </label>
+
+            <label className="grid gap-2 text-sm">
+              <span className="font-semibold uppercase tracking-[0.14em] text-[#f6f0e3]/58">
+                What are you building?
+              </span>
+              <Textarea
+                rows={6}
+                placeholder="A redesign, a new site, a dashboard, a product marketing page..."
+                className="rounded-[1rem] border-white/12 bg-white/10 px-4 py-4 text-[#f6f0e3] placeholder:text-[#f6f0e3]/35"
+              />
+            </label>
+
+            <button
+              type="submit"
+              className="mt-2 inline-flex items-center justify-center gap-3 rounded-full bg-[#f6f0e3] px-6 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-[#171717]"
+            >
+              Send inquiry
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -1,14 +1,21 @@
 "use client"
 
 import { motion, MotionProps } from "motion/react"
+import type { ElementType, HTMLAttributes } from "react"
 
 import { cn } from "@/lib/utils"
 
+const motionComponents = {
+  div: motion.create("div"),
+  p: motion.create("p"),
+  span: motion.create("span"),
+}
+
 interface LineShadowTextProps
-  extends Omit<React.HTMLAttributes<HTMLElement>, keyof MotionProps>,
+  extends Omit<HTMLAttributes<HTMLElement>, keyof MotionProps>,
     MotionProps {
   shadowColor?: string
-  as?: React.ElementType
+  as?: keyof typeof motionComponents | ElementType
 }
 
 export function LineShadowText({
@@ -18,8 +25,11 @@ export function LineShadowText({
   as: Component = "span",
   ...props
 }: LineShadowTextProps) {
-  const MotionComponent = motion.create(Component)
   const content = typeof children === "string" ? children : null
+  const MotionComponent =
+    typeof Component === "string" && Component in motionComponents
+      ? motionComponents[Component as keyof typeof motionComponents]
+      : motionComponents.span
 
   if (!content) {
     throw new Error("LineShadowText only accepts string content")
