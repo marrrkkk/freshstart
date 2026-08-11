@@ -1,45 +1,23 @@
-import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Process from "@/components/Process";
-import Contact from "@/components/Contact";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
-import seoData from "@/data/seo.json";
-
-export const metadata: Metadata = {
-  title: seoData.pages.home.title,
-  description: seoData.pages.home.description,
-  keywords: seoData.pages.home.keywords,
-  openGraph: {
-    title: seoData.pages.home.title,
-    description: seoData.pages.home.description,
-    url: seoData.seo.siteUrl,
-  },
-  twitter: {
-    title: seoData.pages.home.title,
-    description: seoData.pages.home.description,
-  },
-  alternates: {
-    canonical: seoData.seo.siteUrl,
-  },
-};
+import { Hero } from "@/components/hero";
+import { Services } from "@/components/services";
+import { SelectedWork } from "@/components/selected-work";
+import { About } from "@/components/about";
+import { Contact } from "@/components/contact";
+import { SiteHeader } from "@/components/site-header";
+import { RevealObserver } from "@/components/reveal-observer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
-      <Navbar />
+    <main className="relative min-h-screen overflow-hidden bg-[#fffdfa] text-[#171412]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 geometry-field" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[710px] bg-[radial-gradient(ellipse_at_78%_15%,rgba(255,107,53,0.14),transparent_38%),radial-gradient(ellipse_at_14%_42%,rgba(255,176,135,0.12),transparent_31%)]" />
+      <SiteHeader />
       <Hero />
       <Services />
-      <Portfolio />
-      <Process />
-      <FAQ />
+      <SelectedWork />
+      <About />
       <Contact />
-      <Footer />
-      <ScrollToTop />
+      <RevealObserver />
     </main>
   );
 }

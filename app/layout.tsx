@@ -1,52 +1,54 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Geist } from "next/font/google";
+import localFont from "next/font/local";
+import { SiteFooter } from "@/components/site-footer";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import seoData from "@/data/seo.json";
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
+const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
+const apfel = localFont({
+  src: "../public/fonts/ApfelGrotezk-Mittel.woff2",
+  variable: "--font-apfel",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(seoData.seo.siteUrl),
-  title: {
-    default: seoData.seo.defaultTitle,
-    template: `%s | ${seoData.seo.siteName}`,
-  },
-  description: seoData.seo.defaultDescription,
-  keywords: seoData.seo.keywords,
-  authors: [{ name: seoData.seo.author }],
-  creator: seoData.seo.author,
-  publisher: seoData.seo.author,
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  title: "FreshStart PH | Web Development for Startups | Next.js & React",
+  description:
+    "Partner with FreshStart PH to build scalable web applications for your startup. Full-stack development with Next.js, React, and TypeScript. Modern stack, clear timelines, no surprises.",
+  keywords: [
+    "web development Philippines",
+    "startup web development",
+    "Next.js development agency",
+    "React development Philippines",
+    "full-stack web developer",
+    "TypeScript web applications",
+    "scalable web apps",
+    "startup software development",
+    "web app development Manila",
+    "modern web development",
+    "SaaS development Philippines",
+    "FreshStart PH",
+  ],
+  authors: [{ name: "FreshStart PH", url: "https://freshstart.ph" }],
+  creator: "FreshStart PH",
+  metadataBase: new URL("https://freshstart.ph"),
+  alternates: { canonical: "/" },
   openGraph: {
+    title: "FreshStart PH | Web Development for Startups",
+    description:
+      "We partner with startups to build web applications that can handle real growth. Full-stack development with Next.js, React, and TypeScript.",
+    url: "https://freshstart.ph",
+    siteName: "FreshStart PH",
+    locale: "en_PH",
     type: "website",
-    locale: "en_US",
-    url: seoData.seo.siteUrl,
-    siteName: seoData.seo.siteName,
-    title: seoData.seo.defaultTitle,
-    description: seoData.seo.defaultDescription,
-    images: [
-      {
-        url: seoData.seo.ogImage,
-        width: 1200,
-        height: 630,
-        alt: seoData.seo.siteName,
-      },
-    ],
-  },
+    },
   twitter: {
     card: "summary_large_image",
-    title: seoData.seo.defaultTitle,
-    description: seoData.seo.defaultDescription,
-    creator: seoData.seo.twitterHandle,
-    images: [seoData.seo.ogImage],
+    title: "FreshStart PH | Web Development for Startups",
+    description:
+      "Partner with us to build scalable web applications. Modern stack, clear timelines, no surprises. Next.js, React & TypeScript.",
+    creator: "@freshstartph",
   },
   robots: {
     index: true,
@@ -59,42 +61,55 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: seoData.seo.favicon,
-    shortcut: seoData.seo.favicon,
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "FreshStart PH",
+    url: "https://freshstart.ph",
+    logo: "https://freshstart.ph/logo.png",
+    description: "Web development agency specializing in building scalable applications for startups using Next.js, React, and TypeScript",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "PH",
+      addressLocality: "Philippines",
+    },
+    sameAs: [
+      "https://twitter.com/freshstartph",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Service",
+      availableLanguage: ["English", "Filipino"],
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
+    serviceType: [
+      "Web Development",
+      "Web Application Development",
+      "Full-Stack Development",
+      "Next.js Development",
+      "React Development",
+      "TypeScript Development"
+    ],
+  };
+
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${apfel.variable} antialiased`}>
       <head>
-        <link rel="canonical" href={seoData.seo.siteUrl} />
-        <meta name="theme-color" content="#ffffff" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(seoData.structuredData.organization),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(seoData.structuredData.localBusiness),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={`${jakarta.variable} font-sans antialiased bg-white dark:bg-black`}
-      >
+      <body>
         <SmoothScroll />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
