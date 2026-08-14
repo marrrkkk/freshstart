@@ -139,6 +139,24 @@
   }
 }
 
+/* Hero display headline — transparent fill with an ink stroke */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px #171412;
+}
+
+@supports not (-webkit-text-stroke: 2px #171412) {
+  .text-outline {
+    color: inherit;
+  }
+}
+
+@media (max-width: 640px) {
+  .text-outline {
+    -webkit-text-stroke-width: 1.5px;
+  }
+}
+
 .geometry-field {
   background-image:
     radial-gradient(circle at 80% 29%, rgba(255, 107, 53, 0.5) 0 2.5px, transparent 3px),

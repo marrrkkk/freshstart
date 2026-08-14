@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { SiteFooter } from "@/components/site-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const apfel = localFont({
   src: "../public/fonts/ApfelGrotezk-Mittel.woff2",
   variable: "--font-apfel",
@@ -99,7 +100,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
 
   return (
-    <html lang="en" className={`${geist.variable} ${apfel.variable} antialiased`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${apfel.variable} antialiased`}>
       <head>
         <script
           type="application/ld+json"

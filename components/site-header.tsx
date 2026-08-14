@@ -129,11 +129,8 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="mx-auto max-w-[1280px] px-4 pt-3 sm:px-6 sm:pt-4 lg:px-8 lg:pt-5">
-        <div
-          className="relative flex items-center justify-between rounded-2xl border border-[#eadfd9]/90 bg-[#fffdfa]/90 px-4 py-2.5 shadow-[0_8px_32px_rgba(61,37,24,0.07),0_1px_0_rgba(255,255,255,0.9)_inset] backdrop-blur-xl sm:rounded-full sm:px-6"
-        >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#e7dcd7] bg-[#fffdfa]">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-5 py-4 sm:px-8 sm:py-[22px] lg:px-12">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <Link
@@ -280,7 +277,10 @@ export function SiteHeader() {
           </nav>
 
           {/* Right Action: CTA & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <span className="hidden font-mono text-[11px] uppercase tracking-[0.06em] text-[#5e544f] sm:block">
+              MNL, PH
+            </span>
             <div className="hidden sm:block">
               <Link href="/work-with-us">
                 <Button
@@ -298,12 +298,11 @@ export function SiteHeader() {
               onClick={() => setOpen(!open)}
               aria-expanded={open}
               aria-label="Toggle navigation menu"
-              className="grid size-10 place-items-center rounded-xl border border-[#e3d9d4] bg-white text-[#2b211d] shadow-[0_2px_6px_rgba(40,25,16,0.05)] outline-none transition-all hover:-translate-y-px hover:border-[#d8c3b8] hover:shadow-[0_4px_10px_rgba(40,25,16,0.09)] focus-visible:ring-2 focus-visible:ring-[#ff6b35]/40 md:hidden"
+              className="grid size-10 place-items-center rounded-[2px] border border-[#e7dcd7] bg-transparent text-[#2b211d] outline-none transition-colors hover:bg-[#f5f0eb] focus-visible:ring-2 focus-visible:ring-[#ff6b35]/40 md:hidden"
             >
               {open ? <X className="size-4" /> : <Menu className="size-4" />}
             </button>
           </div>
-        </div>
       </div>
 
       {/* Mobile Drawer Overlay */}
@@ -314,7 +313,7 @@ export function SiteHeader() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[72px] z-40 bg-[#171412]/40 backdrop-blur-md md:hidden"
+            className="fixed inset-0 top-[60px] z-40 bg-[#171412]/40 backdrop-blur-md md:hidden"
             onClick={() => setOpen(false)}
           >
             <motion.div
