@@ -46,7 +46,7 @@ export function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-[#5e544f]"
+            className="flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#5e544f] sm:text-[11px]"
           >
             <span aria-hidden="true" className="h-px w-[18px] shrink-0 bg-[#ff6b35]" />
             Web development studio · Manila, PH
@@ -55,7 +55,7 @@ export function Hero() {
           {/* Display headline: solid → outline → accent */}
           <h1
             id="hero-heading"
-            className="mt-6 font-sans text-[clamp(2.75rem,11.5vw,10.5rem)] font-black uppercase leading-[0.88] tracking-[-0.05em] text-[#171412] lg:mt-7"
+            className="mt-6 font-sans text-[clamp(2.5rem,13.8vw,10.5rem)] font-black uppercase leading-[0.88] tracking-[-0.06em] text-[#171412] sm:-mx-8 sm:text-[clamp(5.5rem,11.5vw,10.5rem)] sm:tracking-[-0.05em] lg:mx-0 lg:mt-7"
           >
             <motion.span variants={fadeUp} transition={{ duration: 0.6 }} className="block">
               We build
@@ -73,11 +73,11 @@ export function Hero() {
           </h1>
 
           {/* Subcopy + CTAs */}
-          <div className="mt-10 flex flex-col gap-8 lg:mt-12 lg:flex-row lg:items-end lg:justify-between">
+          <div className="mt-7 flex flex-col gap-6 lg:mt-12 lg:flex-row lg:items-end lg:justify-between">
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.6 }}
-              className="max-w-[440px] text-[17px] leading-[1.5] tracking-[-0.01em] text-[#5e544f] sm:text-[18px]"
+              className="max-w-[440px] text-[15px] leading-[1.55] tracking-[-0.01em] text-[#5e544f] sm:text-[18px] sm:leading-[1.5]"
             >
               We partner with startups to build web applications that can handle real growth.
               Modern stack, clear timelines, no surprises.
