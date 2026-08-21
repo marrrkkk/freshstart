@@ -7,7 +7,6 @@ const services = [
     slug: "product-design-ux",
     icon: PenTool,
     title: "product design\n& UX",
-    tag: "Core",
     description:
       "We design user flows, interfaces, and visual systems that make sense to your users. Clear information architecture, intuitive navigation, purposeful interactions.",
   },
@@ -32,7 +31,6 @@ const services = [
     slug: "ai-integration",
     icon: Bot,
     title: "AI\nintegration",
-    tag: "New",
     description:
       "Add AI features to your existing application. Custom chatbots, document processing, semantic search, and workflow automation using modern LLM APIs.",
   },
@@ -107,11 +105,6 @@ export function Services() {
                         </span>
                       ))}
                     </h3>
-                    {service.tag && (
-                      <span className="hidden self-start rounded-full border border-[#ff6b35]/20 bg-[#fff0e9] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[#cc4a20] sm:inline-block">
-                        {service.tag}
-                      </span>
-                    )}
                   </div>
 
                   {/* Description */}

@@ -49,7 +49,7 @@ export function Hero() {
             className="flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#5e544f] sm:text-[11px]"
           >
             <span aria-hidden="true" className="h-px w-[18px] shrink-0 bg-[#ff6b35]" />
-            Web development studio · Manila, PH
+            Web development studio
           </motion.p>
 
           {/* Display headline: solid → outline → accent */}

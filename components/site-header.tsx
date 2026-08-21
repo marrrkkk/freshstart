@@ -63,24 +63,24 @@ const servicesPreview = [
 
 const projectsPreview = [
   {
-    title: "NOVA Operations",
-    desc: "A clearer control room for a growing operations team.",
+    title: "Operations control center",
+    desc: "Scheduling, hand-offs, and daily work in one focused workspace.",
     icon: BriefcaseBusiness,
-    tag: "Operations platform",
+    tag: "Internal operations platform",
     href: "/projects/nova-operations",
   },
   {
-    title: "Customer Portal",
-    desc: "A friendlier self-service experience for customers.",
+    title: "Customer service portal",
+    desc: "Requests, documents, appointments, and account updates.",
     icon: Layers3,
-    tag: "Service platform",
+    tag: "Customer account experience",
     href: "/projects/customer-portal",
   },
   {
-    title: "Commerce Experience",
-    desc: "Product discovery and checkout made more deliberate.",
+    title: "Retail storefront",
+    desc: "Product discovery, buying details, and mobile checkout.",
     icon: ShoppingBag,
-    tag: "E-commerce",
+    tag: "Direct-to-consumer commerce",
     href: "/projects/commerce-experience",
   },
 ];
@@ -278,9 +278,6 @@ export function SiteHeader() {
 
           {/* Right Action: CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <span className="hidden font-mono text-[11px] uppercase tracking-[0.06em] text-[#5e544f] sm:block">
-              MNL, PH
-            </span>
             <div className="hidden sm:block">
               <Link href="/work-with-us">
                 <Button
